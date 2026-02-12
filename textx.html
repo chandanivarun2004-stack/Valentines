@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif; /* Classic, mature font */
+            background-color: #4B0A0A; /* Darker maroon shade for intense romance */
+            color: #FFB6C1; /* Light pink text for softness */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); /* Subtle depth */
+            position: relative; /* For background elements */
+            overflow: hidden; /* Hide overflowing kisses */
+        }
+        .kiss {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.3; /* Semi-transparent for subtlety */
+            pointer-events: none; /* Non-interactive */
+            animation: float 10s infinite linear; /* Gentle floating */
+        }
+        .kiss:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .kiss:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .kiss:nth-child(3) { top: 40%; left: 20%; animation-delay: 4s; }
+        .kiss:nth-child(4) { top: 60%; right: 10%; animation-delay: 6s; }
+        .kiss:nth-child(5) { top: 80%; left: 30%; animation-delay: 8s; }
+        .kiss:nth-child(6) { top: 30%; right: 30%; animation-delay: 1s; }
+        .kiss:nth-child(7) { top: 50%; left: 50%; animation-delay: 3s; }
+        .kiss:nth-child(8) { top: 70%; right: 20%; animation-delay: 5s; }
+        .kiss:nth-child(9) { top: 15%; left: 70%; animation-delay: 7s; }
+        .kiss:nth-child(10) { top: 35%; right: 5%; animation-delay: 9s; }
+        .kiss:nth-child(11) { top: 55%; left: 5%; animation-delay: 0.5s; }
+        .kiss:nth-child(12) { top: 75%; right: 40%; animation-delay: 2.5s; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+        .heart-ray {
+            position: absolute;
+            font-size: 2em; /* Same size as kisses */
+            opacity: 0.3; /* Same opacity as kisses */
+            pointer-events: none;
+            animation: ray 1.5s ease-out forwards; /* Ray-like burst animation */
+            z-index: 10; /* Above other elements */
+        }
+        @keyframes ray {
+            0% { transform: scale(0) rotate(0deg); opacity: 0.3; }
+            20% { transform: scale(1) rotate(0deg) translateX(0px) translateY(0px); opacity: 0.8; }
+            100% { transform: scale(1) rotate(360deg) translateX(var(--dx)) translateY(var(--dy)); opacity: 0; }
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Dramatic shadow */
+            letter-spacing: 2px;
+            position: relative; z-index: 1; /* Above background */
+        }
+        p {
+            font-size: 1.4em;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 700px;
+            font-style: italic; /* Poetic feel */
+            position: relative; z-index: 1;
+        }
+        .buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            position: relative; z-index: 1;
+        }
+        button {
+            padding: 18px 35px;
+            font-size: 1.3em;
+            border: 2px solid #DAA520; /* Gold border */
+            border-radius: 25px; /* Rounded corners */
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Times New Roman', serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #yes {
+            background: linear-gradient(45deg, #FF69B4, #FFC0CB); /* Valentine's pink gradient */
+            color: #FFFFFF; /* White text */
+        }
+        #yes:hover {
+            background: linear-gradient(45deg, #FFC0CB, #FF1493);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        #no {
+            background: linear-gradient(45deg, #FFB6C1, #FF69B4); /* Valentine's pink gradient */
+            color: #FFFFFF; /* White text */
+            position: relative;
+        }
+        #no:hover {
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        #response {
+            margin-top: 40px;
+            font-size: 1.6em;
+            display: none;
+            color: #FFB6C1; /* Same as rest of font (light pink) */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative; z-index: 1;
+        }
+        .heart {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            position: relative; z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background kisses (12 total) -->
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+    <div class="kiss">💋</div>
+
+    <div class="heart">💖</div> <!-- Heart emoji -->
+    <h1>Dear Chirag!</h1>
+    <p>Will you be my Valentine this February and every year after?<br>
+    Benefits include extra hugs, unlimited kisses and No expiry date.</p>
+    <div class="buttons">
+        <button id="yes" onclick="showResponse()">Yes</button>
+        <button id="no" onmouseover="moveNoButton()">No</button>
+    </div>
+    <div id="response">Wonderful! I knew you'd say yes. ❤️</div>
+
+    <script>
+        function showResponse() {
+            document.getElementById('response').style.display = 'block';
+            // Get the position of the Yes button
+            const button = document.getElementById('yes');
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            // Create lots of hearts that "ray" out from behind the Yes button in all directions like sun rays
+            for (let i = 0; i < 20; i++) { // 20 hearts for "lots"
+                const heart = document.createElement('div');
+                heart.className = 'heart-ray';
+                heart.textContent = '❤️'; // Heart emoji for the rays
+                heart.style.left = centerX + 'px';
+                heart.style.top = centerY + 'px';
+                // Calculate random direction outward like sun rays
+                const angle = (i / 20) * 2 * Math.PI; // Evenly distributed angles for ray effect (360 degrees / 20)
+                const distance = 200; // Distance to ray outward (pixels)
+                const directionX = Math.cos(angle) * distance;
+                const directionY = Math.sin(angle) * distance;
+                heart.style.setProperty('--dx', directionX + 'px');
+                heart.style.setProperty('--dy', directionY + 'px');
+                heart.style.animationDelay = Math.random() * 0.5 + 's'; // Random delay for staggered rays
+                document.body.appendChild(heart);
+                // Remove heart after animation
+                setTimeout(() => {
+                    if (document.body.contains(heart)) {
+                        document.body.removeChild(heart);
+                    }
+                }, 2000); // 2 seconds total
+            }
+        }
+
+        function moveNoButton() {
+            const noButton = document.getElementById('no');
+            const maxX = window.innerWidth - noButton.offsetWidth - 20;
+            const maxY = window.innerHeight - noButton.offsetHeight - 20;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            noButton.style.position = 'fixed'; // Changed to fixed for full-screen movement
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
